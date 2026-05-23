@@ -1,22 +1,54 @@
 if SHIELD_CORNE_DONGLE_NANO
 
 config ZMK_KEYBOARD_NAME
-	default "Cornie Dongle"
+	default "Corne Dongle"
 
 config ZMK_SPLIT
 	default y
 
+# Dongle acts as BLE central for both halves
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
 
-if ZMK_DISPLAY
+# 2 peripherals (left + right halves) + host
+config BT_MAX_CONN
+	default 5
+config BT_MAX_PAIRED
+	default 5
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+	default 2
 
+# Dongle stays active, USB-powered
+config ZMK_SLEEP
+	default n
+
+# Display + battery proxying
+config ZMK_DISPLAY
+	default y
+config BT_BAS
+	default n
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+	default y
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+	default y
+
+# Stronger BLE TX for split link reliability
+choice BT_CTLR_TX_PWR
+	default BT_CTLR_TX_PWR_PLUS_8
+endchoice
+
+# Faster connection intervals for responsiveness
+config BT_PERIPHERAL_PREF_MIN_INT
+	default 6
+config BT_PERIPHERAL_PREF_MAX_INT
+	default 12
+config BT_PERIPHERAL_PREF_LATENCY
+	default 0
+
+# OLED drivers (sh1106 handled via the ssd1306 driver)
 config I2C
 	default y
-
 config SSD1306
 	default y
-
-endif # ZMK_DISPLAY
 
 endif # SHIELD_CORNE_DONGLE_NANO
