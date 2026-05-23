@@ -14,9 +14,9 @@ include:
     artifact-name: corne_dongle_nano
   - board: nice_nano_v2
     shield: corne_left
-    cmake-args: -DEXTRA_CONF_FILE=peripheral_overrides.conf
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: corne_left_peripheral
   - board: nice_nano_v2
     shield: corne_right
-    cmake-args: -DEXTRA_CONF_FILE=peripheral_overrides.conf
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: corne_right_peripheral
