@@ -1,0 +1,10 @@
+file_format: "1"
+id: corne_dongle
+name: Corne Dongle
+type: shield
+url: https://github.com/foostan/crkbd
+requires: [nice_nano_v2]
+features:
+  - display
+siblings:
+  - corne_dongle_nano

@@ -1,0 +1,22 @@
+if SHIELD_CORNE_DONGLE_NANO
+
+config ZMK_KEYBOARD_NAME
+	default "Cornie Dongle"
+
+config ZMK_SPLIT
+	default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+	default y
+
+if ZMK_DISPLAY
+
+config I2C
+	default y
+
+config SSD1306
+	default y
+
+endif # ZMK_DISPLAY
+
+endif # SHIELD_CORNE_DONGLE_NANO
