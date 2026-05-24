@@ -26,6 +26,6 @@ jobs:
       config_path: "keymap_drawer.config.yaml"  # config file, ignored if not exists
       output_folder: "keymap-drawer"            # path to save produced SVG and keymap YAML files
       parse_args: ""
-      draw_args: "corne:'-k corne_5col'"  # use 36-key 5-column physical layout
+      draw_args: "corne:'-l foostan_corne_5col_layout'"  # select 5-col physical layout from ZMK corne
       # commit_message: "Draw: ${{ github.event.head_commit.message }}"
       amend_commit: true # whether to amend the commit or create a new one
